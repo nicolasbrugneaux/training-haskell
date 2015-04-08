@@ -2,6 +2,15 @@
 
 module Problems11_20
 ( encodeModified
+, decodeModified
+, encodeDirect
+, duplicate
+, repli
+, dropEvery
+, split
+, slice
+, rotate
+, removeAt
 ) where
 
 import qualified Problems1_10
