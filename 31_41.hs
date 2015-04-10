@@ -6,7 +6,7 @@ module Problems31_41
 , coprime
 , totient
 , primeFactors
-, primeFactorsTuples,
+, primeFactorsTuples
 , phi
 , primesR
 , goldbach
@@ -53,7 +53,8 @@ primeFactorsTuples = map encode . group . primeFactors
 
 -- problem 37
 phi :: Int -> Int
-phi m = foldl (\acc x -> (*) acc (multiplyPrimeTuple x)) 1 (primeFactorsTuples m) where
+-- phi m = foldl (\acc x -> (*) acc (multiplyPrimeTuple x)) 1 (primeFactorsTuples m) where
+phi m = foldl (flip ((*) . multiplyPrimeTuple)) 1 (primeFactorsTuples m) where
     multiplyPrimeTuple :: (Int, Int) -> Int
     multiplyPrimeTuple (p, f) = (*) (p - 1) ((^) p (f - 1))
 
